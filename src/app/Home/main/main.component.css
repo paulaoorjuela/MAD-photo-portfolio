@@ -1,0 +1,61 @@
+/* Modal background */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(35 35 35 / 80%); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's higher than other content */
+  opacity: 1; /* Set to 1 immediately to avoid transition issues */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Modal content */
+.modal-content {
+  max-height: 90%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Specific size for vertical images */
+.modal-content-vertical {
+  max-width: 31%;
+}
+
+/* Specific size for horizontal images */
+.modal-content-horizontal {
+  max-width: 65%;
+}
+
+/* Expanded image inside the modal */
+.expanded-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Add cursor pointer to images */
+.splide__slide img {
+  cursor: pointer;
+}
+
+/* Ensure slides in horizontal slider have appropriate width */
+.slide-horizontal {
+  width: calc(50%) !important;
+}
+
+@media (max-width: 600px) {
+  .splide__slide {
+    width: 43% !important;
+  }
+
+  .slide-horizontal {
+    width: 90% !important;
+  }
+}

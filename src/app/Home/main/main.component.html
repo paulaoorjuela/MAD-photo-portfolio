@@ -1,22 +1,47 @@
-<section class="px-8 mb-14">
-  <h1 class="mb-10 text-[40px] font-light">Photo Galery</h1>
-  <div class="splide" style="padding: 0; padding-bottom: 1.5rem;">
+<section id="photo-gallery" class="mb-14">
+  <h1 class="mb-10 text-[40px] font-light ps-8">Photo Gallery</h1>
+
+  <!-- Vertical Slider -->
+  <div class="splide splide-vertical" style="padding: 0; padding-bottom: 1.5rem;">
     <div class="splide__track">
       <ul class="splide__list">
-        <li *ngFor="let image of images; let index = index" class="splide__slide">
-          <div class="flex justify-center pb-10">
-            <picture class="relative h-[269px] w-[180px] md:h-[390px] md:w-[270px] lg:h-[515px] lg:w-[360px]">
-              <img
-                [src]="image"
-                [alt]="'Slide ' + index"
-                class="object-cover w-full h-full shadow-md"
-              />
+        @for (image of imagesVertical; track $index) {
+        <li class="splide__slide" (click)="openModal(image, false)">
+          <div class="flex justify-center pb-10 mx-1">
+            <picture class="h-[269px] w-[300px] md:h-[390px] md:w-[270px] lg:h-[515px] lg:w-[360px]">
+              <img [src]="image" [alt]="'Slide ' + $index" class="object-cover w-full h-full shadow-md"/>
             </picture>
           </div>
         </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Horizontal Slider -->
+  <div class="splide splide-horizontal mt-10" style="padding: 0; padding-bottom: 1.5rem;">
+    <div class="splide__track">
+      <ul class="splide__list">
+        @for (image of imagesHorizontal; track $index) {
+        <li class="splide__slide slide-horizontal" (click)="openModal(image, true)">
+          <div class="flex justify-center pb-10 mx-1">
+            <picture class="h-[269px] w-full md:h-[390px] md:w-[270px] lg:h-[515px] lg:w-[800px]">
+              <img [src]="image" [alt]="'Slide ' + $index" class="object-cover w-full h-full shadow-md"/>
+            </picture>
+          </div>
+        </li>
+        }
       </ul>
     </div>
   </div>
 </section>
 
 
+<!-- MODAL -->
+@if (modalImage) {
+  <div class="modal" (click)="closeModal()">
+    <div class="modal-content" [ngClass]="{ 'modal-content-horizontal': isHorizontal, 'modal-content-vertical': !isHorizontal }">
+      <img [src]="modalImage" alt="Expanded Image" class="expanded-image" />
+    </div>
+  </div>
+  }

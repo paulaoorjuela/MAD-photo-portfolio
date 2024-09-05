@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -14,5 +14,18 @@ export class NavbarComponent {
 
   toggleMenu(): void {
     this.isMenuHidden = !this.isMenuHidden;
+  }
+
+  scrollToSection(sectionId: string): void {
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        this.isMenuHidden = true; // Close menu after scrolling
+      }
+    }, 100);
   }
 }

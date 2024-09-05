@@ -1,0 +1,26 @@
+<section class="mb-14">
+  <div class="splide" style="padding: 0; padding-bottom: 1.5rem;">
+    <div class="splide__track">
+      <ul class="splide__list">
+        @for (image of imagesHorizontal; track $index) {
+        <li class="splide__slide" (click)="openModal(image)">
+          <div class="flex justify-center pb-10 mx-1">
+            <picture class="h-[269px] w-[300px] md:h-[390px] md:w-[270px] lg:h-[515px] lg:w-[360px]">
+              <img [src]="image" [alt]="'Slide ' + $index" class="object-cover w-full h-full shadow-md"/>
+            </picture>
+          </div>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL HORIZONTAL -->
+@if (modalImage) {
+  <div class="modal" (click)="closeModal()">
+    <div class="modal-content">
+      <img [src]="modalImage" alt="Expanded Image" class="expanded-image" />
+    </div>
+  </div>
+  }
