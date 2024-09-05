@@ -1,0 +1,22 @@
+<section class="px-8 mb-14">
+  <h1 class="mb-10 text-[40px] font-light">Photo Galery</h1>
+  <div class="splide" style="padding: 0; padding-bottom: 1.5rem;">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li *ngFor="let image of images; let index = index" class="splide__slide">
+          <div class="flex justify-center pb-10">
+            <picture class="relative h-[269px] w-[180px] md:h-[390px] md:w-[270px] lg:h-[515px] lg:w-[360px]">
+              <img
+                [src]="image"
+                [alt]="'Slide ' + index"
+                class="object-cover w-full h-full shadow-md"
+              />
+            </picture>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
