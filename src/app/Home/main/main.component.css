@@ -58,4 +58,17 @@
   .slide-horizontal {
     width: 90% !important;
   }
+
+  .modal-content-vertical{
+    max-width: 80%;
+  }
+
+  .modal-content-horizontal {
+    max-width: 90%;
+  }
+
+  .modal-content {
+    max-height: 60%;
+  }
+
 }
