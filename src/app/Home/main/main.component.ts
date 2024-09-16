@@ -77,4 +77,8 @@ export class MainComponent implements AfterViewInit{
     this.modalImage = null;
     this.isHorizontal = false;
   }
+
+  disableRightClick(event: MouseEvent) {
+    event.preventDefault();
+  }
 }

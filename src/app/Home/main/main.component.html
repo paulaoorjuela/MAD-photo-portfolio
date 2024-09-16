@@ -9,7 +9,7 @@
         <li class="splide__slide" (click)="openModal(image, false)">
           <div class="flex justify-center pb-10 mx-1">
             <picture class="h-[269px] w-[300px] md:h-[390px] md:w-[270px] lg:h-[515px] lg:w-[360px]">
-              <img [src]="image" [alt]="'Slide ' + $index" class="object-cover w-full h-full shadow-md"/>
+              <img [src]="image" [alt]="'Slide ' + $index" class="object-cover w-full h-full shadow-md" (contextmenu)="disableRightClick($event)"/>
             </picture>
           </div>
         </li>
@@ -26,7 +26,7 @@
         <li class="splide__slide slide-horizontal" (click)="openModal(image, true)">
           <div class="flex justify-center pb-10 mx-1">
             <picture class="h-[269px] w-full md:h-[390px] md:w-[270px] lg:h-[515px] lg:w-[800px]">
-              <img [src]="image" [alt]="'Slide ' + $index" class="object-cover w-full h-full shadow-md"/>
+              <img [src]="image" [alt]="'Slide ' + $index" class="object-cover w-full h-full shadow-md" (contextmenu)="disableRightClick($event)"/>
             </picture>
           </div>
         </li>
@@ -41,7 +41,7 @@
 @if (modalImage) {
   <div class="modal" (click)="closeModal()">
     <div class="modal-content" [ngClass]="{ 'modal-content-horizontal': isHorizontal, 'modal-content-vertical': !isHorizontal }">
-      <img [src]="modalImage" alt="Expanded Image" class="expanded-image" />
+      <img [src]="modalImage" alt="Expanded Image" class="expanded-image" (contextmenu)="disableRightClick($event)"/>
     </div>
   </div>
   }
